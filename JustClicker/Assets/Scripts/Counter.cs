@@ -40,7 +40,6 @@ public class Counter : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
         LoadData();
     }
 
