@@ -11,9 +11,9 @@ public class Input : MonoBehaviour
             GetComponent<Counter>().Count--;
             GetComponent<ImageChanger>().HitAnimAndSound();
         }
-        else if (UnityEngine.Input.GetKeyDown(KeyCode.Insert))
+        else if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
         {
-            GetComponent<Counter>().Count -= 256;
+            Application.Quit();
         }
     }
 }
