@@ -41,6 +41,8 @@ public class ImageChanger : MonoBehaviour
         seq.OnComplete(() =>{
             GetComponent<Counter>().Count = 2560;
             GetComponent<Counter>().isChanging = false;
+            egg_BrokenUp.SetActive(false);
+            egg_BrokenDown.SetActive(false);
             Debug.Log("전환 완료!");
             });
 
