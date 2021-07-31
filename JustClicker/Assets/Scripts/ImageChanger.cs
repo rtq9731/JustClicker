@@ -21,6 +21,8 @@ public class ImageChanger : MonoBehaviour
 
     public void CallNewEgg()
     {
+        Debug.Log("전환 시작");
+        DOTween.CompleteAll();
         egg_Image.rectTransform.DOScale(0,0);
         egg_BrokenUp.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
         egg_BrokenDown.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
@@ -28,6 +30,7 @@ public class ImageChanger : MonoBehaviour
         egg_BrokenDown.SetActive(true);
         Sequence seq = DOTween.Sequence();
 
+        seq.Play();
         seq.Append(egg_BrokenDown.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-350, 250), 0.5f).SetEase(Ease.OutQuint));
         seq.Join(egg_BrokenUp.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-350, 250), 0.5f).SetEase(Ease.OutQuint));
 
@@ -38,7 +41,9 @@ public class ImageChanger : MonoBehaviour
         seq.OnComplete(() =>{
             GetComponent<Counter>().Count = 2560;
             GetComponent<Counter>().isChanging = false;
+            Debug.Log("전환 완료!");
             });
+
     }
 
     public void HitAnimAndSound()

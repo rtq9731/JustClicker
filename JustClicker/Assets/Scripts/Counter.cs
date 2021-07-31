@@ -16,9 +16,10 @@ public class Counter : MonoBehaviour
         {
             if (value <= 0)
             {
-
                 if (!isChanging)
                 {
+                    count = value;
+                    countText.text = count.ToString();
                     isChanging = true;
                     GetComponent<ImageChanger>().CallNewEgg();
                 }
@@ -34,6 +35,7 @@ public class Counter : MonoBehaviour
                 GetComponent<ImageChanger>().ChangeImage((ushort)((count / 256) - 1));
             }
 
+            GetComponent<ImageChanger>().HitAnimAndSound();
             SaveData();
             countText.text = count.ToString();
         }}
